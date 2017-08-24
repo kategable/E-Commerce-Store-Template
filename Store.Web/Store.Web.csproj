@@ -165,6 +165,10 @@
     <Compile Include="ViewModels\PencilViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\StoreDB.mdf" />
+    <Content Include="App_Data\StoreDB_log.ldf">
+      <DependentUpon>StoreDB.mdf</DependentUpon>
+    </Content>
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\custom.css" />
@@ -232,9 +236,7 @@
     <Content Include="Views\Pencil\Index.cshtml" />
     <Content Include="Views\Pencil\Update.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
