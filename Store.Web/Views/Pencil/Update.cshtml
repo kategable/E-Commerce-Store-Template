@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Update";
+
+}
+@model Store.Web.ViewModels.PencilViewModel
+
+<div>
+    <div class="home-category-links">
+        <div class="container">
+            <a href="/">Back</a>  <h2>Newest Pencil Products</h2>
+            <!-- Example row of columns -->
+            <select class="form-control" data-bind="options: Pencils, optionsText: 'Title', value: selectedPencil"></select>
+        </div> <!-- /container -->
+    </div><!--/home-category-links -->
+
+</div>
+
+<div class="container">
+    <h2>Edit Selected</h2>
+
+    <div data-bind="with: selectedPencil">
+        <div class="row">            
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="Name">Title</label>
+
+                    <input type="text" data-bind={value:Title} class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Price">Price</label>
+                    <input data-bind="{value:Price}" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Price">Description</label>
+                    <input data-bind="{value:Description}" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="fileImage">Pencil image</label>
+                    <input disabled data-bind="{value:ImagePath}" class="form-control" />
+                    <small id="fileHelp" class="form-text text-muted">Pencil image</small>
+                </div>
+                <div class="form-group">
+                    <label for="buyers">Select all buyers that apply</label>
+                    <select disabled class="form-control" multiple data-bind="options: $root.availableBuyers, optionsText: 'BuyerName', optionsValue: 'Id', selectedOptions: BuyersList"></select>
+                </div>
+                <button data-bind="click: $parent.save" class="btn btn-primary" type="submit">Save</button>
+                <button data-bind="click: $parent.delete" class="btn btn-danger" type="submit">Delete</button>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/ViewModel/PencilsUpdateVM.js")
+}
